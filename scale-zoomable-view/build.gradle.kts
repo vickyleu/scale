@@ -25,6 +25,7 @@ kotlin{
             implementation(project.dependencies.platform(libs.compose.bom))
             implementation(libs.kotlinx.datetime)
             implementation(libs.kotlinx.atomicfu)
+            implementation(libs.androidx.annotations)
         }
     }
 }
@@ -84,6 +85,7 @@ android {
     }
     dependencies {
         implementation(compose.uiTooling)
+
         debugImplementation(libs.compose.ui.tooling.preview)
 //        testImplementation(libs.junit.junit)
     }

@@ -1,7 +1,29 @@
 package com.jvziyaoyao.scale.image.sampling
 
-import kotlinx.cinterop.*
-import platform.CoreFoundation.*
+import kotlinx.cinterop.COpaquePointerVar
+import kotlinx.cinterop.CPointer
+import kotlinx.cinterop.ExperimentalForeignApi
+import kotlinx.cinterop.IntVar
+import kotlinx.cinterop.get
+import kotlinx.cinterop.pointed
+import kotlinx.cinterop.refTo
+import kotlinx.cinterop.reinterpret
+import kotlinx.cinterop.sizeOf
+import kotlinx.cinterop.toKString
+import kotlinx.cinterop.value
+import platform.CoreFoundation.CFDictionaryGetCount
+import platform.CoreFoundation.CFDictionaryGetKeysAndValues
+import platform.CoreFoundation.CFNumberGetValue
+import platform.CoreFoundation.CFNumberRef
+import platform.CoreFoundation.CFStringGetCString
+import platform.CoreFoundation.CFStringGetLength
+import platform.CoreFoundation.CFStringRef
+import platform.CoreFoundation.CFStringRefVar
+import platform.CoreFoundation.CFTypeRef
+import platform.CoreFoundation.CFTypeRefVar
+import platform.CoreFoundation.CFURLRef
+import platform.CoreFoundation.kCFNumberIntType
+import platform.CoreFoundation.kCFStringEncodingUTF8
 import platform.Foundation.CFBridgingRetain
 import platform.Foundation.NSURL
 import platform.ImageIO.CGImageSourceCopyPropertiesAtIndex
@@ -9,8 +31,10 @@ import platform.ImageIO.CGImageSourceCreateWithURL
 import platform.darwin.NSIntegerVar
 import platform.posix.free
 import platform.posix.malloc
+import kotlin.collections.set
 
 @OptIn(ExperimentalForeignApi::class)
+@Suppress("unchecked_cast")
 class ExifInterface(file: CommonFile) {
     private val properties = mutableMapOf<String, Any?>()
 

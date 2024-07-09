@@ -1,12 +1,12 @@
 package com.jvziyaoyao.scale.image.sampling
 
 import kotlinx.atomicfu.locks.SynchronizedObject
-import platform.Foundation.NSLock
 import platform.Foundation.NSMutableArray
 import platform.Foundation.NSThread
 import platform.Foundation.removeAllObjects
 import platform.Foundation.removeObject
 
+@Suppress("unchecked_cast")
 actual class CommonBlockingDeque<T>: SynchronizedObject() {
     private val deque: NSMutableArray = NSMutableArray()
 
