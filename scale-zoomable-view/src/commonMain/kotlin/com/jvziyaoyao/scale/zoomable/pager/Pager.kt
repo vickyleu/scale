@@ -140,6 +140,8 @@ fun SupportedHorizonPager(
         state = state.pagerState,
         modifier = modifier,
         pageSpacing = itemSpacing,
+//        beyondBoundsPageCount = beyondViewportPageCount,
+        beyondViewportPageCount = beyondViewportPageCount,
 //        beyondBoundsPageCount = beyondViewportPageCount,//TODO field not exist
 //        flingBehavior = flingBehavior
 //        flingBehavior = defaultFlingBehavior(pagerState = state),
