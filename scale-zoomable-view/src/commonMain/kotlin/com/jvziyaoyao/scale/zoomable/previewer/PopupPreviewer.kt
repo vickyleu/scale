@@ -168,6 +168,7 @@ open class PopupPreviewerState(
         index: Int = 0,
         enterTransition: EnterTransition? = null,
     ) {
+
         // 标记状态
         stateOpenStart()
         // 实际业务发生
@@ -237,7 +238,9 @@ fun PopupPreviewer(
             enter = enterTransition ?: enter,
             exit = exitTransition ?: exit,
         ) {
+
             previewerDecoration {
+
                 ZoomablePager(
                     modifier = modifier.fillMaxSize(),
                     state = state,

@@ -162,6 +162,9 @@ fun ZoomablePager(
         Box(modifier = Modifier.fillMaxSize()) {
             PagerZoomablePolicyScope { intrinsicSize, content ->
                 val zoomableState = rememberZoomableState(contentSize = intrinsicSize)
+
+                println("zoomablePolicy PagerZoomablePolicyScope: $page zoomableState:$zoomableState")
+
                 LaunchedEffect(key1 = state.currentPage, key2 = zoomableState) {
                     if (state.currentPage == page) {
                         state.zoomableViewState.value = zoomableState

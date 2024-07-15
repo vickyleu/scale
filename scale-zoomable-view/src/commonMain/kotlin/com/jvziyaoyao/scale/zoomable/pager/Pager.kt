@@ -28,42 +28,37 @@ import androidx.compose.ui.unit.dp
  *
  * @property pagerState 可以用来控制页面切换和获取页面状态等
  */
-open class SupportedPagerState @OptIn(ExperimentalFoundationApi::class) constructor(
+open class SupportedPagerState constructor(
     val pagerState: PagerState,
 ) {
 
     /**
      * 当前页码
      */
-    @OptIn(ExperimentalFoundationApi::class)
     val currentPage: Int
         get() = pagerState.currentPage
 
     /**
      * 目标页码
      */
-    @OptIn(ExperimentalFoundationApi::class)
     val targetPage: Int
         get() = pagerState.targetPage
 
     /**
      * 当前页数
      */
-    @OptIn(ExperimentalFoundationApi::class)
     val pageCount: Int
         get() = pagerState.pageCount
 
     /**
      * interactionSource
      */
-    @OptIn(ExperimentalFoundationApi::class)
     val interactionSource: InteractionSource
         get() = pagerState.interactionSource
 
     /**
      * 滚动到指定页面
      */
-    @OptIn(ExperimentalFoundationApi::class)
     suspend fun scrollToPage(
         // 指定的页码
         @IntRange(from = 0) page: Int,
@@ -138,12 +133,16 @@ fun SupportedHorizonPager(
 ) {
     HorizontalPager(
         state = state.pagerState,
+        key = {
+            it
+        },
+        pageContent = { page ->
+            content(page)
+        },
+        beyondViewportPageCount = beyondViewportPageCount,
         modifier = modifier,
         pageSpacing = itemSpacing,
-        beyondViewportPageCount = beyondViewportPageCount,
 //        flingBehavior = flingBehavior,
 //        flingBehavior = defaultFlingBehavior(pagerState = state),
-    ) { page ->
-        content(page)
-    }
+    )
 }
