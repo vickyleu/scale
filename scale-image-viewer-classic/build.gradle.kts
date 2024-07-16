@@ -27,6 +27,10 @@ kotlin {
             implementation(projects.scale.scaleZoomableView)
             implementation(projects.scale.scaleSamplingDecoder)
         }
+
+        androidMain.get().dependencies {
+            implementation("androidx.annotation:annotation:1.8.0")
+        }
     }
 }
 

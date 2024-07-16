@@ -1,7 +1,6 @@
 package com.origeek.imageViewer.gallery
 
-import androidx.annotation.FloatRange
-import androidx.annotation.IntRange
+
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,7 +18,8 @@ import com.jvziyaoyao.scale.zoomable.pager.DEFAULT_ITEM_SPACE
 import com.jvziyaoyao.scale.zoomable.pager.SupportedHorizonPager
 import com.jvziyaoyao.scale.zoomable.pager.SupportedPagerState
 import com.jvziyaoyao.scale.zoomable.pager.rememberSupportedPagerState
-
+import com.origeek.imageViewer.util.FloatRangeImpl
+import com.origeek.imageViewer.util.IntRangeImpl
 import com.origeek.imageViewer.viewer.ImageViewer
 import com.origeek.imageViewer.viewer.ImageViewerState
 import com.origeek.imageViewer.viewer.commonDeprecatedText
@@ -114,8 +114,8 @@ open class ImageGalleryState(
      * @param pageOffset Float
      */
     suspend fun scrollToPage(
-        @IntRange(from = 0) page: Int,
-        @FloatRange(from = 0.0, to = 1.0) pageOffset: Float = 0f,
+        @IntRangeImpl(from = 0) page: Int,
+        @FloatRangeImpl(from = 0.0, to = 1.0) pageOffset: Float = 0f,
     ) = pagerState.scrollToPage(page, pageOffset)
 
     /**
@@ -124,8 +124,8 @@ open class ImageGalleryState(
      * @param pageOffset Float
      */
     suspend fun animateScrollToPage(
-        @IntRange(from = 0) page: Int,
-        @FloatRange(from = 0.0, to = 1.0) pageOffset: Float = 0f,
+        @IntRangeImpl(from = 0) page: Int,
+        @FloatRangeImpl(from = 0.0, to = 1.0) pageOffset: Float = 0f,
     ) = pagerState.animateScrollToPage(page, pageOffset)
 
 }
@@ -138,7 +138,7 @@ open class ImageGalleryState(
 )
 @Composable
 fun rememberImageGalleryState(
-    @IntRange(from = 0) initialPage: Int = 0,
+    @IntRangeImpl(from = 0) initialPage: Int = 0,
     pageCount: () -> Int,
 ): ImageGalleryState {
     val imagePagerState =

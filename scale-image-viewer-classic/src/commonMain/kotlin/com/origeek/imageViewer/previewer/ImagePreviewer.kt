@@ -1,6 +1,6 @@
 package com.origeek.imageViewer.previewer
 
-import androidx.annotation.IntRange
+
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
@@ -10,7 +10,6 @@ import androidx.compose.animation.core.MutableTransitionState
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -38,6 +37,7 @@ import com.origeek.imageViewer.gallery.GalleryGestureScope
 import com.origeek.imageViewer.gallery.ImageGallery
 import com.origeek.imageViewer.gallery.ImageGalleryState
 import com.origeek.imageViewer.gallery.rememberImageGalleryState
+import com.origeek.imageViewer.util.IntRangeImpl
 import com.origeek.imageViewer.viewer.ImageViewerState
 import com.origeek.imageViewer.viewer.commonDeprecatedText
 import kotlinx.coroutines.CoroutineScope
@@ -97,7 +97,7 @@ fun rememberPreviewerState(
     // 开启垂直手势的类型
     verticalDragType: VerticalDragType = VerticalDragType.None,
     // 初始页码
-    @IntRange(from = 0) initialPage: Int = 0,
+    @IntRangeImpl(from = 0) initialPage: Int = 0,
     // 获取页数
     pageCount: () -> Int,
     // 提供给组件用于获取key的方法
