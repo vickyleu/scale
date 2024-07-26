@@ -95,12 +95,15 @@ fun ZoomableView(
                         onTap = { detectGesture.onTap(it) },
                         onDoubleTap = { detectGesture.onDoubleTap(it) },
                         gestureStart = {
+                            println("gestureStart")
                             onGestureStart(scope)
                         },
                         gestureEnd = { transformOnly ->
+                            println("gestureEnd")
                             onGestureEnd(scope, transformOnly)
                         },
                         onGesture = { center, pan, zoom, rotate, event ->
+                            println("onGesture")
                             onGesture(scope, center, pan, zoom, rotate, event)
                         },
                     )
