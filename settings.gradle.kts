@@ -10,6 +10,8 @@ pluginManagement {
     }
     listOf(repositories, dependencyResolutionManagement.repositories).forEach {
         it.apply {
+            maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev") {
+            }
             mavenCentral{
                 content{
                     excludeGroupByRegex("org.jetbrains.compose.*")
@@ -24,6 +26,7 @@ pluginManagement {
                 content{
                     excludeGroupByRegex("org.jogamp.*")
                     excludeGroupByRegex("com.vickyleu.*")
+                    includeGroupByRegex("org.jetbrains.kotlin.*")
                     excludeGroupByRegex("org.jetbrains.compose.*")
                     excludeGroupByRegex("androidx.databinding.*")
                     // 避免无效请求,加快gradle 同步依赖的速度
@@ -55,6 +58,7 @@ pluginManagement {
                     excludeGroupByRegex("com.github.*")
                 }
             }
+
         }
     }
     resolutionStrategy {
@@ -80,6 +84,8 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
 
     repositories {
+        maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev") {
+        }
         mavenCentral{
             content {
                 excludeGroupByRegex("org.jogamp.*")
@@ -197,6 +203,7 @@ dependencyResolutionManagement {
                 excludeGroupByRegex("io.github.*")
             }
         }
+
     }
 
 }
