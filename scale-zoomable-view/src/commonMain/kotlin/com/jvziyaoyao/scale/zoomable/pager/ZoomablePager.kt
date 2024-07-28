@@ -152,6 +152,8 @@ fun ZoomablePager(
 ) {
     val scope = rememberCoroutineScope()
     // 确保不会越界
+    println("zoomablePolicy 确保不会越界")
+
     SupportedHorizonPager(
         state = state.pagerState,
         modifier = modifier
@@ -159,7 +161,10 @@ fun ZoomablePager(
         itemSpacing = itemSpacing,
         beyondViewportPageCount = beyondViewportPageCount,
     ) { page ->
+
         Box(modifier = Modifier.fillMaxSize()) {
+            println("zoomablePolicy SupportedHorizonPager $page")
+
             PagerZoomablePolicyScope { intrinsicSize, content ->
                 val zoomableState = rememberZoomableState(contentSize = intrinsicSize)
 
@@ -176,7 +181,9 @@ fun ZoomablePager(
                     state = zoomableState,
                     boundClip = false,
                     detectGesture = ZoomableGestureScope(
-                        onTap = { detectGesture.onTap() },
+                        onTap = {
+                            println("zoomablePolicy onTap")
+                            detectGesture.onTap() },
                         onDoubleTap = {
                             val consumed = detectGesture.onDoubleTap()
                             if (!consumed) scope.launch {
