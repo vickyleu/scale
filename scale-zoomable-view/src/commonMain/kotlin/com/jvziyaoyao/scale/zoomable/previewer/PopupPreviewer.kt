@@ -240,7 +240,6 @@ fun PopupPreviewer(
         ) {
 
             previewerDecoration {
-
                 ZoomablePager(
                     modifier = modifier.fillMaxSize(),
                     state = state,

@@ -76,7 +76,6 @@ typealias ProceedPresentation = @Composable PagerZoomablePolicyScope.(
  */
 val defaultProceedPresentation: ProceedPresentation = { model, size, processor, imageLoading ->
     // TODO 这里是否要添加渐变动画?
-    println("zoomablePolicy 傻逼代码,如何是自定义Compose就不能进行缩放")
     if (model != null && model is AnyComposable && size == null) {
         model.composable.invoke()
         true

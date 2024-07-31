@@ -85,7 +85,6 @@ fun ImagePreviewer(
         debugMode = debugMode,
         detectGesture = detectGesture,
         zoomablePolicy = { page ->
-            println("zoomablePolicy ImagePreviewer $page 什么垃圾代码")
             pageDecoration.invoke(page) decoration@{
                 val (model, size) = imageLoader.invoke(page)
                 proceedPresentation.invoke(this, model, size, processor, imageLoading)
