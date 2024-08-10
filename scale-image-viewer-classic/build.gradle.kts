@@ -1,15 +1,17 @@
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    id(libs.plugins.android.library.get().pluginId)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.kotlinx.atomicfu)
-    id(libs.plugins.kotlin.multiplatform.get().pluginId)
+    alias(libs.plugins.kotlin.atomicfu)
+    alias(libs.plugins.kotlin.multiplatform)
 }
 
 kotlin {
     applyDefaultHierarchyTemplate()
-    androidTarget()
+    androidTarget{
+        publishLibraryVariants("release")
+    }
     iosArm64()
     iosX64()
     iosSimulatorArm64()
@@ -77,7 +79,12 @@ android {
     buildFeatures {
         compose = true
     }
-
+    publishing {
+        singleVariant("release"){
+            withJavadocJar()
+            withSourcesJar()
+        }
+    }
     dependencies {
         implementation(compose.uiTooling)
         debugImplementation(libs.compose.ui.tooling.preview)

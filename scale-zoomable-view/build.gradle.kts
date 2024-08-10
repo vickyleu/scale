@@ -3,16 +3,18 @@
 import org.jetbrains.compose.ExperimentalComposeLibrary
 
 plugins {
-    id(libs.plugins.android.library.get().pluginId)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.kotlinx.atomicfu)
-    id(libs.plugins.kotlin.multiplatform.get().pluginId)
+    alias(libs.plugins.kotlin.atomicfu)
+    alias(libs.plugins.kotlin.multiplatform)
 }
 
 kotlin{
     applyDefaultHierarchyTemplate()
-    androidTarget()
+    androidTarget{
+        publishLibraryVariants("release")
+    }
     iosArm64()
     iosX64()
     iosSimulatorArm64()
@@ -25,7 +27,7 @@ kotlin{
             implementation(project.dependencies.platform(libs.compose.bom))
             implementation(libs.kotlinx.datetime)
             implementation(libs.kotlinx.atomicfu)
-            implementation(libs.androidx.annotations)
+            api(libs.androidx.annotations)
         }
     }
 }
@@ -83,11 +85,17 @@ android {
     buildFeatures {
         compose = true
     }
+
+    publishing {
+        singleVariant("release"){
+            withJavadocJar()
+            withSourcesJar()
+        }
+    }
+
     dependencies {
         implementation(compose.uiTooling)
-
         debugImplementation(libs.compose.ui.tooling.preview)
-//        testImplementation(libs.junit.junit)
     }
 }
 

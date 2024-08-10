@@ -37,7 +37,7 @@ import com.origeek.imageViewer.gallery.GalleryGestureScope
 import com.origeek.imageViewer.gallery.ImageGallery
 import com.origeek.imageViewer.gallery.ImageGalleryState
 import com.origeek.imageViewer.gallery.rememberImageGalleryState
-import com.origeek.imageViewer.util.IntRangeImpl
+import androidx.annotation.IntRange
 import com.origeek.imageViewer.viewer.ImageViewerState
 import com.origeek.imageViewer.viewer.commonDeprecatedText
 import kotlinx.coroutines.CoroutineScope
@@ -97,7 +97,7 @@ fun rememberPreviewerState(
     // 开启垂直手势的类型
     verticalDragType: VerticalDragType = VerticalDragType.None,
     // 初始页码
-    @IntRangeImpl(from = 0) initialPage: Int = 0,
+    @IntRange(from = 0) initialPage: Int = 0,
     // 获取页数
     pageCount: () -> Int,
     // 提供给组件用于获取key的方法

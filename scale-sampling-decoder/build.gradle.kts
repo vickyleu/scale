@@ -1,14 +1,16 @@
 plugins {
-    id(libs.plugins.android.library.get().pluginId)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.compose.compiler)
-    id(libs.plugins.kotlin.multiplatform.get().pluginId)
-    alias(libs.plugins.kotlinx.atomicfu)
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.atomicfu)
 }
 
 kotlin{
     applyDefaultHierarchyTemplate()
-    androidTarget()
+    androidTarget{
+        publishLibraryVariants("release")
+    }
     iosArm64()
     iosX64()
     iosSimulatorArm64()
@@ -78,10 +80,16 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    publishing {
+        singleVariant("release"){
+            withJavadocJar()
+            withSourcesJar()
+        }
+    }
     dependencies {
         implementation(compose.uiTooling)
         debugImplementation(libs.compose.ui.tooling.preview)
-        implementation(libs.androidx.exifinterface)
+        implementation(libs.exifinterface)
 //        testImplementation(libs.junit.junit)
     }
 }

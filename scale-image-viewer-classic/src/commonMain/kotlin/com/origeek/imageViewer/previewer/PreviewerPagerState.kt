@@ -2,8 +2,8 @@ package com.origeek.imageViewer.previewer
 
 
 import com.origeek.imageViewer.gallery.ImageGalleryState
-import com.origeek.imageViewer.util.FloatRangeImpl
-import com.origeek.imageViewer.util.IntRangeImpl
+import androidx.annotation.FloatRange
+import androidx.annotation.IntRange
 import com.origeek.imageViewer.viewer.commonDeprecatedText
 
 /**
@@ -41,8 +41,8 @@ open class PreviewerPagerState(
      * @param pageOffset Float
      */
     suspend fun scrollToPage(
-        @IntRangeImpl(from = 0) page: Int,
-        @FloatRangeImpl(from = 0.0, to = 1.0) pageOffset: Float = 0F,
+        @IntRange(from = 0) page: Int,
+        @FloatRange(from = 0.0, to = 1.0) pageOffset: Float = 0F,
     ) = galleryState.scrollToPage(page, pageOffset)
 
     /**
@@ -51,8 +51,8 @@ open class PreviewerPagerState(
      * @param pageOffset Float
      */
     suspend fun animateScrollToPage(
-        @IntRangeImpl(from = 0) page: Int,
-        @FloatRangeImpl(from = 0.0, to = 1.0) pageOffset: Float = 0F,
+        @IntRange(from = 0) page: Int,
+        @FloatRange(from = 0.0, to = 1.0) pageOffset: Float = 0F,
     ) = galleryState.animateScrollToPage(page, pageOffset)
 
 }
