@@ -1,9 +1,9 @@
 [versions]
-agp = "8.5.2"
+agp = "8.7.0"
 atomicfu = "0.25.0"
-compose-plugin = "1.7.0-alpha02"
-kotlin = "2.0.0"
-jetpack-compose-bom = "2024.06.00"
+compose-plugin = "1.7.0-rc01"
+kotlin = "2.0.20"
+jetpack-compose-bom = "2024.09.03"
 android-compileSdk = "34"
 android-minSdk = "28"
 android-targetSdk = "34"
@@ -12,10 +12,10 @@ dokka = "1.9.20"
 androidx-annotation = "1.8.2"
 kotlinxDatetime = "0.6.0"
 junit = "4.13.2"
-kotlinxIoCore = "0.3.1"
+kotlinxIoCore = "0.5.3"
 exifinterface = "1.3.7"
 appcompat = "1.7.0"
-activityCompose = "1.9.1"
+activityCompose = "1.9.2"
 
 
 [libraries]
