@@ -175,7 +175,8 @@ fun ZoomablePager(
                     boundClip = false,
                     detectGesture = ZoomableGestureScope(
                         onTap = {
-                            detectGesture.onTap() },
+                            detectGesture.onTap()
+                        },
                         onDoubleTap = {
                             val consumed = detectGesture.onDoubleTap()
                             if (!consumed) scope.launch {

@@ -1,13 +1,12 @@
-@file:OptIn(ExperimentalComposeLibrary::class)
-
 import org.jetbrains.compose.ExperimentalComposeLibrary
 
 plugins {
-    alias(libs.plugins.android.library)
+    id(libs.plugins.android.library.get().pluginId)
+    id(libs.plugins.kotlin.multiplatform.get().pluginId)
+
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.kotlin.atomicfu)
-    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlinx.atomicfu)
 }
 
 kotlin{

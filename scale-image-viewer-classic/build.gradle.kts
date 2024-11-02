@@ -31,7 +31,7 @@ kotlin {
         }
 
         androidMain.get().dependencies {
-            implementation("androidx.annotation:annotation:1.8.0")
+            implementation("androidx.annotation:annotation:1.9.1")
         }
     }
 }
@@ -88,6 +88,5 @@ android {
     dependencies {
         implementation(compose.uiTooling)
         debugImplementation(libs.compose.ui.tooling.preview)
-//        testImplementation(libs.junit.junit)
     }
 }

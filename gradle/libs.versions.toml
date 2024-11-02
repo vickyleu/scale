@@ -1,21 +1,22 @@
 [versions]
-agp = "8.7.0"
+agp = "8.7.2"
 atomicfu = "0.25.0"
-compose-plugin = "1.7.0-rc01"
+compose-plugin = "1.7.0"
+#noinspection GradleDependency
 kotlin = "2.0.20"
-jetpack-compose-bom = "2024.09.03"
-android-compileSdk = "34"
+jetpack-compose-bom = "2024.10.01"
+android-compileSdk = "35"
 android-minSdk = "28"
 android-targetSdk = "34"
 jvmTarget = "17"
 dokka = "1.9.20"
-androidx-annotation = "1.8.2"
+androidx-annotation = "1.9.1"
 kotlinxDatetime = "0.6.0"
 junit = "4.13.2"
-kotlinxIoCore = "0.5.3"
+kotlinxIoCore = "0.5.4"
 exifinterface = "1.3.7"
 appcompat = "1.7.0"
-activityCompose = "1.9.2"
+activityCompose = "1.9.3"
 
 
 [libraries]
@@ -37,5 +38,5 @@ android-library = { id = "com.android.library", version.ref = "agp" }
 jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-kotlin-atomicfu = { id = "org.jetbrains.kotlin.plugin.atomicfu", version.ref = "kotlin" }
+kotlinx-atomicfu = { id = "org.jetbrains.kotlin.plugin.atomicfu", version.ref = "kotlin" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }

@@ -1,9 +1,10 @@
 plugins {
-    alias(libs.plugins.android.library)
+    id(libs.plugins.kotlin.multiplatform.get().pluginId)
+    id(libs.plugins.android.library.get().pluginId)
+
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.kotlin.atomicfu)
+    alias(libs.plugins.kotlinx.atomicfu)
 }
 
 kotlin{
@@ -90,25 +91,5 @@ android {
         implementation(compose.uiTooling)
         debugImplementation(libs.compose.ui.tooling.preview)
         implementation(libs.exifinterface)
-//        testImplementation(libs.junit.junit)
     }
 }
-//dependencies {
-//    implementation(project(":scale-image-viewer"))
-//
-//    implementation(libs.androidx.exif)
-//
-//    implementation(libs.androidx.compose.ui.util)
-//    implementation(libs.androidx.compose.ui)
-//    implementation(libs.androidx.compose.material)
-//    implementation(libs.androidx.compose.ui.tooling.preview)
-//    androidTestImplementation(libs.androidx.compose.ui.test)
-//    debugImplementation(libs.androidx.compose.ui.tooling)
-//
-//    implementation(libs.core.ktx)
-//    implementation(libs.appcompat)
-//    implementation(libs.material)
-//    testImplementation(libs.junit.junit)
-//    androidTestImplementation(libs.androidx.test.ext.junit)
-//    androidTestImplementation(libs.espresso.core)
-//}
