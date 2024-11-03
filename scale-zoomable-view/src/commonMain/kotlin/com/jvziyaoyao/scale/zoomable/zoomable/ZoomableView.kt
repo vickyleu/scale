@@ -92,8 +92,17 @@ fun ZoomableView(
                 }
                 .pointerInput(state) {
                     detectTransformGestures(
-                        onTap = { detectGesture.onTap(it) },
-                        onDoubleTap = { detectGesture.onDoubleTap(it) },
+                        onTap = {
+                            if(allowGestureInput){
+                                println("ZoomableView onTap =-==>>detectTransformGestures")
+                                detectGesture.onTap(it)
+                            }
+                        },
+                        onDoubleTap = {
+                            if(allowGestureInput){
+                                detectGesture.onDoubleTap(it)
+                            }
+                            },
                         gestureStart = {
                             println("gestureStart")
                             onGestureStart(scope)

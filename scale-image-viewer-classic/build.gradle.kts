@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.kotlin.atomicfu)
+    alias(libs.plugins.kotlinx.atomicfu)
     alias(libs.plugins.kotlin.multiplatform)
 }
 
